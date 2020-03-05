@@ -29,23 +29,22 @@ try {
 </head>
 
 <body>
-<a href="index.php">Terug</a>
-<div>
-<?php
-    $stmt = $pdo->query("SELECT * FROM movies WHERE id = " . $_GET['id']);
+    <a href="index.php">Terug</a>
+    <div>
+        <?php
+        $stmt = $pdo->query("SELECT * FROM movies WHERE id = " . $_GET['id']);
 
-    foreach ($stmt as $row) {
-        echo "<h1>" . $row['title'] . " - " . $row['duur'] . " Minuten </h1><br>";
-        echo "<h5> Datum van uitkomst </h5>" . $row['datum_van_uitkomst'];
-        echo "<h5> Land van uitkomst </h5>" . $row['land_van_uitkomst'];
-        echo $row['description'] . "<br><br>";
-        echo "<iframe width='420' height='315'
-        src='https://www.youtube.com/embed/" .$row['youtube_trailer_id'] ."'>
+        foreach ($stmt as $row) {
+            echo "<h1>" . $row['title'] . " - " . $row['duur'] . " Minuten </h1><br>";
+            echo "<h5> Datum van uitkomst </h5>" . $row['datum_van_uitkomst'];
+            echo "<h5> Land van uitkomst </h5>" . $row['land_van_uitkomst'];
+            echo $row['description'] . "<br><br>";
+            echo "<iframe width='420' height='315'
+        src='https://www.youtube.com/embed/" . $row['youtube_trailer_id'] . "'>
         </iframe> ";
-        
-    }
-    ?>
-</div>
+        }
+        ?>
+    </div>
 </body>
 
 </html>

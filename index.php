@@ -31,10 +31,12 @@ try {
     <h2 class="titel">Series</h2><br>
     <div class="series">
         <div class="serietitel">
-            <h4>Title</h4>
+            <a href="index.php?series=title&films=title">
+                <h4>Title</h4>
+            </a>
             <span class="serietitels">
                 <?php
-                $stmt = $pdo->query('SELECT title FROM series');
+                $stmt = $pdo->query("SELECT title FROM series ORDER BY " . $_GET['series']);
                 foreach ($stmt as $row) {
                     echo "" . $row['title'] . "<br>";
                 }
@@ -42,9 +44,11 @@ try {
             </span>
         </div>
         <div class="serierating">
-            <h4>Rating</h4>
+            <a href="index.php?series=rating&films=duur">
+                <h4>Rating</h4>
+            </a>
             <?php
-            $stmt = $pdo->query('SELECT rating FROM series');
+            $stmt = $pdo->query("SELECT rating FROM series ORDER BY " . $_GET['series']);
             foreach ($stmt as $row) {
                 echo "" . $row['rating'] . "<br>";
             }
@@ -53,11 +57,11 @@ try {
         <div class="serierating">
             <h4>Details</h4>
             <?php
-            $stmt = $pdo->query('SELECT id FROM series');
+            $stmt = $pdo->query("SELECT id FROM series ORDER BY " . $_GET['series']);
             foreach ($stmt as $row) {
-                echo "<a href='series.php?id=".$row['id'] . "'>" . "Bekijk details </a><br>";
+                echo "<a href='series.php?id=" . $row['id'] . "'>" . "Bekijk details </a><br>";
             }
-            ?>  
+            ?>
         </div>
     </div>
     <div class="middenstuk">
@@ -65,10 +69,12 @@ try {
     <h2 class="titel">Films</h2><br>
     <div class="films">
         <div class="filmtitel">
-            <h4>Title</h4>
+            <a href="index.php?series=title&films=title">
+                <h4>Title</h4>
+            </a>
             <span class="filmtitels">
                 <?php
-                $stmt = $pdo->query('SELECT title FROM movies');
+                $stmt = $pdo->query("SELECT title FROM movies ORDER BY " . $_GET['films']);
                 foreach ($stmt as $row) {
                     echo "" . $row['title'] . "<br>";
                 }
@@ -76,23 +82,25 @@ try {
             </span>
         </div>
         <div class="filmduur">
-            <h4>Duur</h4>
+            <a href="index.php?series=rating&films=duur">
+                <h4>Duur</h4>
+            </a>
             <?php
-            $stmt = $pdo->query('SELECT duur FROM movies');
+            $stmt = $pdo->query("SELECT duur FROM movies ORDER BY " . $_GET['films']);
             foreach ($stmt as $row) {
                 echo "" . $row['duur'] . "<br>";
             }
             ?>
         </div>
         <div class="serierating">
-        <h4>Details</h4>
+            <h4>Details</h4>
             <?php
-            $stmt = $pdo->query('SELECT id FROM movies');
+            $stmt = $pdo->query("SELECT id FROM movies ORDER BY " . $_GET['films']);
             foreach ($stmt as $row) {
-                echo "<a href='films.php?id=".$row['id'] . "'>" . "Bekijk details </a><br>";
+                echo "<a href='films.php?id=" . $row['id'] . "'>" . "Bekijk details </a><br>";
             }
             ?>
-    </div>
+        </div>
 </body>
 
 </html>
