@@ -59,7 +59,7 @@ try {
             <?php
             $stmt = $pdo->query("SELECT id FROM series ORDER BY " . $_GET['series']);
             foreach ($stmt as $row) {
-                echo "<a href='series.php?id=" . $row['id'] . "'>" . "Bekijk details </a><br>";
+                echo "<a href='series.php?id=" . $row['id'] . "'> Bekijk details </a><br>";
             }
             ?>
         </div>
@@ -97,7 +97,7 @@ try {
             <?php
             $stmt = $pdo->query("SELECT id FROM movies ORDER BY " . $_GET['films']);
             foreach ($stmt as $row) {
-                echo "<a href='films.php?id=" . $row['id'] . "'>" . "Bekijk details </a><br>";
+                echo "<a href='films.php?id=" . $row['id'] . "'> Bekijk details </a><br>";
             }
             ?>
         </div>
